@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simpy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simpy
+  template:
+    metadata:
+      labels:
+        app: simpy
+    spec:
+      containers:
+        - name: simpy
+          image: simplepy
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5000
