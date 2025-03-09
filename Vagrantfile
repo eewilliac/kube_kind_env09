@@ -9,9 +9,9 @@ Vagrant.configure("2") do|config|
         vbox.vm.disk :disk, size: "40GB", primary: true
         vbox.vm.network "public_network", ip:"192.168.50.51", mode:"bridge"
         vbox.vm.hostname = "learnkubernetes"
-        vbox.vm.provision "file", source: "kind_cluster.yaml", destination: "kind_cluster.yaml"
-        vbox.vm.provision "file", source: "basic_nginx_pod.yaml", destination: "basic_nginx_pod.yaml"
-        vbox.vm.provision "file", source: "deploy_nginx.yaml", destination: "deploy_nginx.yaml"
+        vbox.vm.provision "file", source: "reference/kind_cluster.yaml", destination: "kind_cluster.yaml"
+        #vbox.vm.provision "file", source: "reference/basic_nginx_pod.yaml", destination: "basic_nginx_pod.yaml"
+        #vbox.vm.provision "file", source: "/deploy_nginx.yaml", destination: "deploy_nginx.yaml"
         vbox.vm.provision "docker-shell", type:"shell", path:"userdata/install-docker.sh"
     end
     # this works!
